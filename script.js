@@ -30,6 +30,9 @@ function multiply(x, y) {
 }
 
 function divide(x, y) {
+    if (y === 0) {
+        return "lmao"
+    }
     return x / y;
 }
 
@@ -66,23 +69,20 @@ function clearDisplay() {
 }
 
 function equalto() {
-    let first = "";
-    let second = "";
-    let op = "";
+    let oplist = ["+", "-", "*", "/"];
     let opindex = getopindex();
-    first = display_value.slice(0,opindex)
-    second = display_value.slice(opindex+1, display_value.length)
-    op = display_value.slice(opindex,opindex+1);
-    let result = operate(+first, +second, op);
-    display_value = String(result);
-    updateDisplay() 
+    if (oplist.includes(display_value.slice(opindex,opindex+1))) {
+        let first = "";
+        let second = "";
+        let op = "";
+        first = display_value.slice(0,opindex)
+        second = display_value.slice(opindex+1, display_value.length)
+        op = display_value.slice(opindex,opindex+1);
+        let result = operate(+first, +second, op);
+        display_value = String(result);
+        updateDisplay() 
+    }
 }
-
-
-
-
-
-
 
 
 equalbutton.addEventListener("click", () => {
