@@ -58,5 +58,7 @@ button {
     height: 5em;
     width: 19em;
     background-color: cornsilk;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
